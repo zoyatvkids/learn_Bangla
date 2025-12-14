@@ -5,529 +5,156 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zoya TV Bangla – Writing Worksheets</title>
 
-  <!-- (Optional) Google Analytics – replace G-XXXXXXX when you're ready -->
-  <!--
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MEBP4C3N9T"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-XXXXXXX');
+    gtag('config', 'G-MEBP4C3N9T');
   </script>
-  -->
-
-  <style>
-    :root {
-      --bg: #f4f6fb;
-      --card-bg: #ffffff;
-      --accent: #f97316;           /* warm orange */
-      --accent-strong: #ea580c;
-      --accent-soft: #ffedd5;
-      --accent-secondary: #2563eb; /* blue */
-      --accent-secondary-soft: #dbeafe;
-      --text-main: #111827;
-      --text-sub: #4b5563;
-      --border: #e5e7eb;
-      --radius-lg: 18px;
-      --radius-xl: 24px;
-      --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.08);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #fee2e2 0, #f4f6fb 45%, #ffffff 100%);
-      color: var(--text-main);
-      line-height: 1.6;
-      padding: 16px 10px 40px;
-    }
-
-    .page {
-      max-width: 960px;
-      margin: 0 auto;
-    }
-
-    /* Banner: fixed aspect ratio, responsive */
-
-    .banner-wrapper {
-      max-width: 960px;
-      margin: 0 auto 18px;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
-      background: linear-gradient(#7dd3fc, #bfdbfe);
-      /* Wide but not too tall */
-      aspect-ratio: 16 / 5;
-    }
-
-    .banner-img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-    }
-
-    @media (max-width: 640px) {
-      body {
-        padding: 10px 8px 28px;
-      }
-      .banner-wrapper {
-        border-radius: 16px;
-        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.2);
-        aspect-ratio: 16 / 7; /* a bit taller on mobile so it feels roomy */
-      }
-    }
-
-    /* Top brand bar */
-
-    .site-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 18px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .brand-logo {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, #f97316, #fb7185);
-      color: white;
-      font-weight: 800;
-      font-size: 1.1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 22px rgba(248, 113, 113, 0.45);
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .brand-title {
-      font-weight: 800;
-      font-size: 1rem;
-      letter-spacing: 0.02em;
-    }
-
-    .brand-subtitle {
-      font-size: 0.8rem;
-      color: var(--text-sub);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.9rem;
-    }
-
-    .nav-link {
-      text-decoration: none;
-      color: var(--text-sub);
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      transition: background 0.15s ease, color 0.15s ease, border 0.15s ease;
-    }
-
-    .nav-link:hover {
-      background: var(--accent-secondary-soft);
-      color: var(--accent-secondary);
-      border-color: #bfdbfe;
-    }
-
-    .nav-link-primary {
-      background: var(--accent-secondary);
-      color: #ffffff;
-      border-color: var(--accent-secondary);
-    }
-
-    @media (max-width: 640px) {
-      .site-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        align-self: stretch;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-      }
-    }
-
-    /* Page header text */
-
-    header.page-header {
-      text-align: center;
-      margin-bottom: 24px;
-    }
-
-    header.page-header .tagline-bn {
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    header.page-header h1 {
-      font-size: clamp(1.8rem, 4vw, 2.2rem);
-      font-weight: 800;
-      letter-spacing: 0.02em;
-      margin-bottom: 6px;
-    }
-
-    header.page-header h1 span.brand {
-      color: var(--accent-secondary);
-    }
-
-    header.page-header p {
-      font-size: 0.95rem;
-      color: var(--text-sub);
-      max-width: 560px;
-      margin: 0.25rem auto 0;
-    }
-
-    /* Info banner */
-
-    .info-banner {
-      background: var(--accent-secondary-soft);
-      border-radius: var(--radius-lg);
-      padding: 10px 14px;
-      font-size: 0.9rem;
-      color: #1e3a8a;
-      margin-bottom: 18px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .info-icon {
-      font-size: 1.1rem;
-    }
-
-    /* Layout grid */
-
-    .sections-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 16px;
-    }
-
-    @media (max-width: 800px) {
-      .sections-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--radius-xl);
-      padding: 18px 18px 14px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(148, 163, 184, 0.25);
-    }
-
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 10px;
-    }
-
-    .card-title {
-      font-size: 1.05rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .card-title span.icon {
-      font-size: 1.2rem;
-    }
-
-    .card-subtitle {
-      font-size: 0.8rem;
-      color: var(--text-sub);
-    }
-
-    .section-description {
-      font-size: 0.85rem;
-      color: var(--text-sub);
-      margin-bottom: 8px;
-    }
-
-    /* Worksheet list */
-
-    .worksheet-list {
-      list-style: none;
-      margin-top: 6px;
-    }
-
-    .worksheet-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 7px 6px;
-      border-radius: 999px;
-      transition: background 0.15s ease, transform 0.1s ease;
-      border: 1px solid transparent;
-      margin-bottom: 4px;
-    }
-
-    .worksheet-item:hover {
-      background: #f1f5f9;
-      transform: translateY(-1px);
-      border-color: var(--border);
-    }
-
-    .worksheet-label {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.9rem;
-    }
-
-    .letter-bn {
-      font-size: 1.3rem;
-      font-weight: 800;
-    }
-
-    .letter-en {
-      font-size: 0.8rem;
-      color: var(--text-sub);
-    }
-
-    .badge {
-      font-size: 0.8rem;
-      background: var(--accent-soft);
-      color: var(--accent-strong);
-      padding: 3px 10px;
-      border-radius: 999px;
-      font-weight: 600;
-    }
-
-    .download-link {
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-decoration: none;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid #c4d3f6;
-      background: white;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      color: #1d4ed8;
-      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
-      transition: background 0.15s ease, transform 0.08s ease, box-shadow 0.08s ease;
-    }
-
-    .download-link span.icon {
-      font-size: 0.9rem;
-    }
-
-    .download-link:hover {
-      background: var(--accent-secondary-soft);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.24);
-    }
-
-    /* Right card */
-
-    .coming-soon-list {
-      font-size: 0.9rem;
-      color: var(--text-sub);
-      margin-left: 16px;
-      margin-top: 6px;
-    }
-
-    /* Footer */
-
-    footer {
-      margin-top: 24px;
-      text-align: center;
-      font-size: 0.82rem;
-      color: var(--text-sub);
-    }
-
-    footer a {
-      color: var(--accent-secondary);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    .footer-small {
-      margin-top: 4px;
-      font-size: 0.78rem;
-    }
-  </style>
 </head>
 
 <body>
-
-  <!-- Local banner image (now constrained & responsive) -->
-  <div class="banner-wrapper">
-    <img
-      src="images/zoya_tv_banner.png"
-      alt="Zoya TV Bangla Channel Banner"
-      class="banner-img"
-    />
-  </div>
+  <!-- Clickable banner back to home -->
+  <a href="index.html" class="banner-wrapper">
+    <img src="images/zoya_tv_banner.png" alt="Zoya TV Bangla Channel Banner" class="banner-img" />
+  </a>
 
   <div class="page">
-
-    <!-- Brand bar -->
-    <div class="site-header">
-      <div class="brand">
-        <div class="brand-logo">ZT</div>
-        <div class="brand-text">
-          <div class="brand-title">Zoya TV Bangla</div>
-          <div class="brand-subtitle">Learn Bangla – Writing for Kids</div>
-        </div>
-      </div>
-
-      <nav class="nav-links">
-        <a href="https://www.youtube.com/@zoyatvkids" target="_blank" class="nav-link">YouTube</a>
-        <a href="https://zoyatvkids.github.io/learn_Bangla/downloads.html" class="nav-link nav-link-primary">
-          Worksheets
-        </a>
-      </nav>
-    </div>
-
-    <!-- Page heading -->
-    <header class="page-header">
-      <div class="tagline-bn">হ্যালো বন্ধুরা! চলো বাংলা লেখা শিখি ✏️</div>
-      <h1><span class="brand">Zoya TV Bangla</span> – Writing Worksheets</h1>
-      <p>
-        Download the worksheets below, print on A4 paper, and let your child trace & write
-        while watching the matching YouTube lessons.
-      </p>
-    </header>
-
-    <!-- Info banner -->
-    <div class="info-banner">
-      <span class="info-icon">ℹ️</span>
-      <span>
-        Click a worksheet to download the PDF. More letters will be added as new videos are published.
-      </span>
-    </div>
-
-    <!-- Main content -->
-    <main class="sections-grid">
-
-      <!-- Left: available vowels -->
-      <section class="card" id="swaraborno">
-        <div class="card-header">
-          <div>
-            <div class="card-title">
-              <span class="icon">🔤</span>
-              <span>স্বরবর্ণ – Bangla Vowels</span>
+    <div class="app-frame">
+      <!-- Header -->
+      <header class="site-header">
+        <div class="brand">
+          <div class="brand-logo">ZT</div>
+          <div class="brand-text">
+            <div class="brand-title">
+              <a href="index.html" class="brand-link">Zoya TV Bangla</a>
             </div>
-            <p class="section-description">
-              Currently available vowel writing worksheets.
-            </p>
-          </div>
-          <span class="card-subtitle">Level: Beginner</span>
-        </div>
-
-        <ul class="worksheet-list">
-
-          <!-- অ লেখা শিখি -->
-          <li class="worksheet-item">
-            <div class="worksheet-label">
-              <span class="letter-bn">অ</span>
-              <span class="letter-en">(Aw)</span>
-              <span class="badge">Trace & Write</span>
-            </div>
-            <a
-              class="download-link"
-              href="learn_writing/Bangla_vowels/অ লেখা শিখি.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-worksheet="swaraborno_অ"
-            >
-              <span class="icon">⬇️</span>
-              <span>Download PDF</span>
-            </a>
-          </li>
-
-          <!-- আ লেখা শিখি -->
-          <li class="worksheet-item">
-            <div class="worksheet-label">
-              <span class="letter-bn">আ</span>
-              <span class="letter-en">(Aa)</span>
-              <span class="badge">Trace & Write</span>
-            </div>
-            <a
-              class="download-link"
-              href="learn_writing/Bangla_vowels/আ লেখা শিখি.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-worksheet="swaraborno_আ"
-            >
-              <span class="icon">⬇️</span>
-              <span>Download PDF</span>
-            </a>
-          </li>
-
-        </ul>
-      </section>
-
-      <!-- Right: coming soon -->
-      <section class="card">
-        <div class="card-header">
-          <div class="card-title">
-            <span class="icon">📄</span>
-            <span>More Worksheets Coming Soon</span>
+            <div class="brand-subtitle">Learn Bangla – Writing for Kids</div>
           </div>
         </div>
-        <p class="section-description">
-          New worksheets will be added as videos are published on the Zoya TV Bangla channel.
+
+        <nav class="nav-links">
+          <a href="https://www.youtube.com/@zoyatvkids" target="_blank" class="nav-link">YouTube</a>
+          <a href="downloads.html" class="nav-link nav-link-primary">Worksheets</a>
+        </nav>
+      </header>
+
+      <!-- Page heading -->
+      <section class="section text-center">
+        <p class="kicker">হ্যালো বন্ধুরা! চলো বাংলা লেখা শিখি ✏️</p>
+        <h1 class="heading-lg">
+          <span class="brand">Zoya TV Bangla</span><br />
+          – Writing Worksheets
+        </h1>
+        <p class="section-subtitle" style="max-width: 540px; margin: 0 auto;">
+          Download the worksheets below, print on A4 paper, and let your child trace &amp; write
+          while watching the matching YouTube lessons.
         </p>
-        <ul class="coming-soon-list">
-          <li>✔️ Remaining স্বরবর্ণ (vowels)</li>
-          <li>✔️ ব্যঞ্জনবর্ণ (consonants)</li>
-          <li>✔️ Mixed practice packs & revision sheets</li>
-        </ul>
       </section>
 
-    </main>
+      <!-- Info pill -->
+      <section class="section">
+        <div class="info-pill">
+          <span class="info-pill-icon">ℹ️</span>
+          <span>
+            Click a worksheet to download the PDF. More letters will be added as new videos are published.
+          </span>
+        </div>
+      </section>
 
-    <!-- Footer -->
-    <footer>
-      <p>
-        👉 Watch the matching handwriting lessons on
-        <a href="https://www.youtube.com/@zoyatvkids" target="_blank" rel="noopener noreferrer">
-          Zoya TV Bangla (YouTube)
-        </a>
-      </p>
-      <p class="footer-small">
-        © Zoya TV Bangla — Free for personal & educational use. Not for commercial use (CC BY-NC 4.0).
-      </p>
-    </footer>
+      <!-- Worksheets grid -->
+      <section class="section downloads-grid">
+        <!-- Left: available vowels -->
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">
+                <span class="card-title-icon">🔤</span>
+                <span>স্বরবর্ণ – Bangla Vowels</span>
+              </div>
+              <p class="card-muted">Currently available vowel writing worksheets.</p>
+            </div>
+            <span class="card-subtitle">Level: Beginner</span>
+          </div>
 
+          <ul class="worksheet-list">
+            <!-- অ লেখা শিখি -->
+            <li class="worksheet-item">
+              <div class="worksheet-label">
+                <span class="letter-bn">অ</span>
+                <span class="letter-en">(Aw)</span>
+                <span class="badge">Trace &amp; Write</span>
+              </div>
+              <a
+                class="btn btn-secondary"
+                href="learn_writing/Bangla_vowels/অ লেখা শিখি.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-worksheet="swaraborno_অ"
+              >
+                ⬇️ Download PDF
+              </a>
+            </li>
+
+            <!-- আ লেখা শিখি -->
+            <li class="worksheet-item">
+              <div class="worksheet-label">
+                <span class="letter-bn">আ</span>
+                <span class="letter-en">(Aa)</span>
+                <span class="badge">Trace &amp; Write</span>
+              </div>
+              <a
+                class="btn btn-secondary"
+                href="learn_writing/Bangla_vowels/আ লেখা শিখি.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-worksheet="swaraborno_আ"
+              >
+                ⬇️ Download PDF
+              </a>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Right: coming soon -->
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-title-icon">📄</span>
+              <span>More Worksheets Coming Soon</span>
+            </div>
+          </div>
+          <p class="card-muted">
+            New worksheets will be added as videos are published on the Zoya TV Bangla channel.
+          </p>
+          <ul class="bullet-list" style="margin-top: 6px;">
+            <li>✔️ Remaining স্বরবর্ণ (vowels)</li>
+            <li>✔️ ব্যঞ্জনবর্ণ (consonants)</li>
+            <li>✔️ Mixed practice packs &amp; revision sheets</li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <p>
+          👉 Watch the matching handwriting lessons on
+          <a href="https://www.youtube.com/@zoyatvkids" target="_blank" rel="noopener noreferrer">
+            Zoya TV Bangla (YouTube)
+          </a>
+        </p>
+        <p class="footer-small">
+          © Zoya TV Bangla — Free for personal & educational use. Not for commercial use (CC BY-NC 4.0).
+        </p>
+      </footer>
+    </div>
   </div>
 
-  <!-- Simple click tracking hook if you later enable GA -->
+  <!-- Optional: GA download event tracking -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const links = document.querySelectorAll("a[data-worksheet]");
