@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zoya TV Bangla – Learn Bangla Writing</title>
+
+  <!-- (Optional) Google Analytics – replace G-XXXXXXX when you're ready -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX');
+  </script>
+  -->
+
+  <style>
+    :root {
+      --bg: #f4f6fb;
+      --card-bg: #ffffff;
+      --accent: #f97316;
+      --accent-strong: #ea580c;
+      --accent-soft: #ffedd5;
+      --accent-secondary: #2563eb;
+      --accent-secondary-soft: #dbeafe;
+      --text-main: #111827;
+      --text-sub: #4b5563;
+      --border: #e5e7eb;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #fee2e2 0, #f4f6fb 45%, #ffffff 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 16px 10px 40px;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Banner (same style as downloads page) */
+
+    .banner-wrapper {
+      max-width: 960px;
+      margin: 0 auto 18px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
+      background: linear-gradient(#7dd3fc, #bfdbfe);
+      aspect-ratio: 16 / 5;
+    }
+
+    .banner-img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 10px 8px 28px;
+      }
+      .banner-wrapper {
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.2);
+        aspect-ratio: 16 / 7;
+      }
+    }
+
+    /* Top brand bar */
+
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #f97316, #fb7185);
+      color: white;
+      font-weight: 800;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 22px rgba(248, 113, 113, 0.45);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-sub);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-sub);
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: background 0.15s ease, color 0.15s ease, border 0.15s ease;
+    }
+
+    .nav-link:hover {
+      background: var(--accent-secondary-soft);
+      color: var(--accent-secondary);
+      border-color: #bfdbfe;
+    }
+
+    .nav-link-primary {
+      background: var(--accent-secondary);
+      color: #ffffff;
+      border-color: var(--accent-secondary);
+    }
+
+    @media (max-width: 640px) {
+      .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links {
+        align-self: stretch;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+    }
+
+    /* Hero section */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 18px;
+      margin-bottom: 24px;
+      padding: 16px 16px 14px;
+      border-radius: 24px;
+      background: radial-gradient(circle at top right, #fef3c7 0, #fee2e2 50%, #ffffff 100%);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(248, 250, 252, 0.9);
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .hero-text {
+      padding-right: 4px;
+    }
+
+    .hero-kicker {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #b91c1c;
+      margin-bottom: 4px;
+    }
+
+    .hero-title {
+      font-size: clamp(1.8rem, 5vw, 2.4rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .hero-title span {
+      color: var(--accent-secondary);
+    }
+
+    .hero-body {
+      font-size: 0.95rem;
+      color: var(--text-sub);
+      margin-bottom: 10px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .hero-note {
+      font-size: 0.85rem;
+      color: var(--text-sub);
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 14px 14px 10px;
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      box-shadow: 0 10px 24px rgba(248, 250, 252, 0.7);
+    }
+
+    .hero-card-header {
+      margin-bottom: 8px;
+    }
+
+    .hero-card-header h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .hero-steps {
+      margin-left: 18px;
+      font-size: 0.88rem;
+      color: var(--text-sub);
+    }
+
+    .hero-steps li {
+      margin-bottom: 4px;
+    }
+
+    .hero-card-footer {
+      margin-top: 6px;
+      font-size: 0.85rem;
+      color: var(--text-sub);
+    }
+
+    /* Buttons */
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      border-radius: 999px;
+      padding: 9px 16px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: background 0.15s ease, transform 0.08s ease, box-shadow 0.08s ease, border 0.15s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: white;
+      box-shadow: 0 10px 22px rgba(248, 113, 113, 0.55);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 28px rgba(248, 113, 113, 0.7);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--accent-secondary);
+      border-color: #bfdbfe;
+    }
+
+    .btn-secondary:hover {
+      background: var(--accent-secondary-soft);
+    }
+
+    /* Features */
+
+    .feature-section {
+      margin-bottom: 26px;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-sub);
+      max-width: 620px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .feature-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+    }
+
+    .feature-icon {
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+    }
+
+    .feature-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .feature-card p {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+    }
+
+    /* Simple "What's inside" list */
+
+    .inside-section {
+      margin-bottom: 24px;
+    }
+
+    .inside-list {
+      margin-left: 18px;
+      font-size: 0.9rem;
+      color: var(--text-sub);
+    }
+
+    .inside-list li {
+      margin-bottom: 3px;
+    }
+
+    /* Footer */
+
+    footer {
+      margin-top: 18px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--text-sub);
+    }
+
+    footer a {
+      color: var(--accent-secondary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-small {
+      margin-top: 4px;
+      font-size: 0.78rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Banner -->
+  <div class="banner-wrapper">
+    <img
+      src="images/zoya_tv_banner.png"
+      alt="Zoya TV Bangla Channel Banner"
+      class="banner-img"
+    />
+  </div>
+
+  <div class="page">
+    <!-- Brand bar -->
+    <div class="site-header">
+      <div class="brand">
+        <div class="brand-logo">ZT</div>
+        <div class="brand-text">
+          <div class="brand-title">Zoya TV Bangla</div>
+          <div class="brand-subtitle">Learn Bangla – Writing for Kids</div>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="https://www.youtube.com/@zoyatvkids" target="_blank" class="nav-link">YouTube</a>
+        <a href="downloads.html" class="nav-link nav-link-primary">Worksheets</a>
+      </nav>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-text">
+        <p class="hero-kicker">হ্যালো বন্ধুরা! 👋</p>
+        <h1 class="hero-title">
+          চলো মজা করে <span>বাংলা লেখা</span> শিখি ✏️
+        </h1>
+        <p class="hero-body">
+          Free printable Bangla handwriting worksheets, made specially for the
+          <strong>Zoya TV Bangla</strong> YouTube channel. Perfect for parents, teachers,
+          and Bangla-learning kids all over the world.
+        </p>
+
+        <div class="hero-actions">
+          <a href="downloads.html" class="btn btn-primary">
+            📥 Download Worksheets
+          </a>
+          <a href="https://www.youtube.com/@zoyatvkids" target="_blank" class="btn btn-secondary">
+            ▶️ Watch Lessons on YouTube
+          </a>
+        </div>
+
+        <p class="hero-note">
+          স্বরবর্ণ থেকে শুরু করে ধীরে ধীরে সব অক্ষর – video + worksheet একসাথে ব্যবহার করলে শেখা হয়
+          আরও মজার ও সহজ।
+        </p>
+      </div>
+
+      <aside class="hero-card">
+        <div class="hero-card-header">
+          <h2>How to use the worksheets</h2>
+        </div>
+        <ol class="hero-steps">
+          <li>Choose a letter worksheet (PDF).</li>
+          <li>Print it on A4 paper.</li>
+          <li>Play the matching YouTube writing lesson.</li>
+          <li>Let your child trace ➜ write ➜ repeat.</li>
+        </ol>
+        <p class="hero-card-footer">
+          Best for ages <strong>3+</strong> and beginner Bangla learners.
+        </p>
+      </aside>
+    </section>
+
+    <!-- Features -->
+    <section class="feature-section">
+      <h2 class="section-title">Why Zoya TV Bangla worksheets?</h2>
+      <p class="section-subtitle">
+        Every sheet is designed to match a video, so kids can
+        <strong>see, hear, and write</strong> at the same time – making learning smooth and fun.
+      </p>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon">🧒</div>
+          <h3>Kid-friendly design</h3>
+          <p>
+            Big letters, clear stroke directions, and enough space to practice. Simple layouts that
+            don’t overwhelm young learners.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🖨️</div>
+          <h3>Print-ready A4 PDFs</h3>
+          <p>
+            Just download and print. Each worksheet focuses on one letter so you can repeat it
+            until your child feels confident.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🌍</div>
+          <h3>Perfect for the diaspora</h3>
+          <p>
+            Great for Bangla-speaking families living abroad who want to keep the language alive
+            at home in a fun, structured way.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- What's inside now -->
+    <section class="inside-section">
+      <h2 class="section-title">What’s available right now?</h2>
+      <ul class="inside-list">
+        <li>✏️ স্বরবর্ণ worksheets: <strong>অ লেখা শিখি</strong> &amp; <strong>আ লেখা শিখি</strong></li>
+        <li>📥 All worksheets in one place: <a href="downloads.html">Downloads page</a></li>
+        <li>⏳ More vowels, consonants &amp; practice packs are coming soon</li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>
+        👉 Start with the worksheets here:
+        <a href="downloads.html">Download Bangla Writing Worksheets</a>
+      </p>
+      <p class="footer-small">
+        © Zoya TV Bangla — Free for personal & educational use. Not for commercial use (CC BY-NC 4.0).
+      </p>
+    </footer>
+  </div>
+
+  <!-- Optional: custom events if you later use GA -->
+  <!--
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const btn = document.querySelector(".btn-primary");
+      if (btn && typeof gtag === "function") {
+        btn.addEventListener("click", function () {
+          gtag("event", "click_home_download_cta", {
+            location: "hero",
+            destination: "downloads.html"
+          });
+        });
+      }
+    });
+  </script>
+  -->
+</body>
+</html>
