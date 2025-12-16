@@ -1,6 +1,6 @@
 /* -----------------------------------------------------------
    Zoya TV Bangla – Global styles
-   Clean, modern, kid-friendly theme
+   Clean, modern, kid-friendly theme with professional responsive design
 ----------------------------------------------------------- */
 
 /* Color system */
@@ -10,7 +10,9 @@
   --white: #ffffff;
 
   --brand-blue: #2563eb;
+  --brand-blue-dark: #1d4ed8;
   --brand-blue-soft: #dbeafe;
+  --brand-blue-light: #eff6ff;
 
   --accent-orange: #fb923c;
   --accent-orange-strong: #f97316;
@@ -18,23 +20,38 @@
 
   --text-main: #111827;
   --text-sub: #4b5563;
+  --text-muted: #6b7280;
 
   --border: #e5e7eb;
+  --border-light: #f3f4f6;
 
+  --radius-sm: 12px;
+  --radius-md: 16px;
   --radius-lg: 20px;
   --radius-xl: 28px;
 
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
   --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 18px 45px rgba(0, 0, 0, 0.15);
+
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.15s ease;
 }
 
 /* Kid-friendly fonts */
-@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Nunito:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;500;600;700&display=swap");
 
 /* Global reset */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html, body {
@@ -45,15 +62,22 @@ html, body {
 body {
   font-family: "Nunito", sans-serif;
   background: radial-gradient(circle at top left, #fee2e2 0%, #e0f2fe 35%, #ffffff 100%);
+  background-attachment: fixed;
   color: var(--text-main);
   line-height: 1.65;
   padding: 12px 10px 40px;
+  min-height: 100vh;
 }
 
 /* PAGE CONTAINER */
 .page {
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
+}
+
+.app-frame {
+  width: 100%;
 }
 
 /* -----------------------------------------------------------
@@ -61,64 +85,60 @@ body {
 ----------------------------------------------------------- */
 
 .banner-wrapper {
-  max-width: 960px;
-  margin: 0 auto;
+  max-width: 1200px;
+  margin: 0 auto 24px;
   border-radius: var(--radius-xl);
   overflow: hidden;
   display: block;
-  aspect-ratio: 16/6.3;       /* Reduced height */
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.20);
+  aspect-ratio: 16/6.3;
+  box-shadow: var(--shadow-xl);
+  transition: var(--transition);
+}
+
+.banner-wrapper:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
 }
 
 .banner-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 /* -----------------------------------------------------------
-   NEW HEADER DESIGN
+   HEADER DESIGN
 ----------------------------------------------------------- */
 
-/*
- ✨ New Features:
-  - Minimal height
-  - Glassy floating style
-  - Stronger brand identity
-  - Clean button layout
-*/
-
-.site-header-container {
-  max-width: 960px;
-  margin: -18px auto 18px;
-  position: relative;
-  z-index: 20;
-}
-
 .site-header {
-  backdrop-filter: blur(14px);
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  border-radius: 22px;
-  padding: 10px 16px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-lg);
+  padding: 12px 20px;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 32px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
 /* BRAND */
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .brand-logo {
-  width: 34px;
-  height: 34px;
-  border-radius: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,117 +146,217 @@ body {
   font-family: "Baloo 2", cursive;
   background: linear-gradient(135deg, #fbbf24, #fb7185);
   color: white;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.1rem;
+  font-weight: 800;
+  flex-shrink: 0;
 
-  box-shadow: 0 6px 12px rgba(251, 113, 133, 0.45);
+  box-shadow: 0 6px 16px rgba(251, 113, 133, 0.4);
+  transition: var(--transition);
+}
+
+.brand-logo:hover {
+  transform: scale(1.05) rotate(5deg);
 }
 
 .brand-text {
   display: flex;
   flex-direction: column;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 
 .brand-title {
   font-family: "Baloo 2", cursive;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 700;
 }
 
 .brand-link {
   text-decoration: none;
   color: var(--text-main);
+  transition: var(--transition-fast);
+}
+
+.brand-link:hover {
+  color: var(--brand-blue);
 }
 
 .brand-subtitle {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: var(--text-sub);
+  margin-top: 2px;
 }
 
 /* NAVIGATION */
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .nav-link {
   text-decoration: none;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 500;
   color: var(--text-sub);
-  padding: 6px 12px;
+  padding: 8px 16px;
   border-radius: 999px;
   background: transparent;
   border: 1px solid transparent;
-  transition: 0.15s ease;
+  transition: var(--transition-fast);
+  white-space: nowrap;
 }
 
 .nav-link:hover {
-  background: var(--brand-blue-soft);
+  background: var(--brand-blue-light);
   color: var(--brand-blue);
-  border-color: #bfdbfe;
+  border-color: var(--brand-blue-soft);
+  transform: translateY(-1px);
 }
 
 .nav-link-primary {
-  background: var(--brand-blue);
+  background: linear-gradient(135deg, var(--brand-blue), var(--brand-blue-dark));
   color: white;
   border-color: var(--brand-blue);
-  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.35);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
 .nav-link-primary:hover {
-  background: #1d4ed8;
+  background: linear-gradient(135deg, var(--brand-blue-dark), #1e40af);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+  transform: translateY(-2px);
 }
 
-/* MOBILE HEADER */
-@media (max-width: 620px) {
-  .site-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    padding: 12px 14px;
-  }
+/* -----------------------------------------------------------
+   SECTIONS
+----------------------------------------------------------- */
+
+.section {
+  margin-bottom: 48px;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.text-center {
+  text-align: center;
 }
 
 /* -----------------------------------------------------------
    TYPOGRAPHY SYSTEM
 ----------------------------------------------------------- */
 
-.text-center { text-align: center; }
-
 .kicker {
-  font-size: 0.9rem;
-  color: #b91c1c;
+  font-size: 0.95rem;
+  color: #dc2626;
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  display: block;
 }
 
 .heading-xl {
   font-family: "Baloo 2", cursive;
-  font-size: clamp(1.8rem, 4.4vw, 2.4rem);
-  margin: 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin: 0 0 16px;
   color: var(--text-main);
+  line-height: 1.2;
+  font-weight: 800;
 }
 
 .heading-xl span {
   color: var(--brand-blue);
+  display: inline-block;
 }
 
 .heading-lg {
   font-family: "Baloo 2", cursive;
-  font-size: clamp(1.6rem, 3vw, 2.1rem);
-  margin-bottom: 6px;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin: 0 0 12px;
   color: var(--text-main);
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.heading-lg .brand {
+  color: var(--brand-blue);
 }
 
 .section-title {
-  font-size: 1.2rem;
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
   font-weight: 700;
+  margin: 0 0 12px;
+  color: var(--text-main);
 }
 
 .section-subtitle {
   color: var(--text-sub);
-  font-size: 0.92rem;
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* -----------------------------------------------------------
+   HERO SECTION
+----------------------------------------------------------- */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+  margin-bottom: 64px;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-note {
+  margin-top: 20px;
+  padding: 16px;
+  background: var(--brand-blue-light);
+  border-left: 4px solid var(--brand-blue);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  color: var(--text-sub);
+  line-height: 1.6;
+}
+
+.hero-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 24px;
+}
+
+.hero-card h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 16px;
+  color: var(--text-main);
+}
+
+.hero-steps {
+  margin: 0 0 16px;
+  padding-left: 20px;
+  list-style: decimal;
+}
+
+.hero-steps li {
+  margin-bottom: 8px;
+  color: var(--text-sub);
+  line-height: 1.6;
+}
+
+.hero-steps li:last-child {
+  margin-bottom: 0;
 }
 
 /* -----------------------------------------------------------
@@ -247,30 +367,48 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 8px;
 
-  padding: 8px 16px;
+  padding: 12px 24px;
   border-radius: 999px;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   text-decoration: none;
-
   font-weight: 600;
   border: 1px solid transparent;
-  transition: 0.15s ease, transform 0.08s ease;
+  transition: var(--transition);
+  cursor: pointer;
+  white-space: nowrap;
 }
 
-.btn:hover { transform: translateY(-1px); }
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
 
 .btn-primary {
   background: linear-gradient(135deg, var(--accent-orange), var(--accent-orange-strong));
   color: white;
-  box-shadow: 0 8px 16px rgba(249, 115, 22, 0.35);
+  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.35);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.45);
 }
 
 .btn-secondary {
   background: var(--white);
   color: var(--brand-blue);
-  border-color: #bfdbfe;
+  border: 2px solid var(--brand-blue-soft);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+  background: var(--brand-blue-light);
+  border-color: var(--brand-blue);
+  box-shadow: var(--shadow-md);
 }
 
 /* -----------------------------------------------------------
@@ -279,28 +417,74 @@ body {
 
 .card {
   background: var(--white);
-  border-radius: 20px;
-  padding: 16px;
-  border: 1px solid rgba(148, 163, 184, 0.25);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  height: 100%;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
 }
 
 .card-header {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .card-title {
   display: flex;
-  gap: 6px;
-  font-size: 1rem;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
   font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.card-title-icon {
+  font-size: 1.3rem;
+}
+
+.card-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background: var(--brand-blue-light);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .card-muted {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   color: var(--text-sub);
+  margin: 8px 0 0;
+  line-height: 1.5;
+}
+
+/* -----------------------------------------------------------
+   FEATURE GRID
+----------------------------------------------------------- */
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  display: block;
 }
 
 /* -----------------------------------------------------------
@@ -308,7 +492,7 @@ body {
 ----------------------------------------------------------- */
 
 .worksheet-list {
-  margin: 14px 0 0;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -317,42 +501,121 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  padding: 6px 10px;
-  border-radius: 14px;
-  margin-bottom: 6px;
-
-  transition: 0.15s ease;
+  gap: 16px;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  margin-bottom: 12px;
+  background: var(--border-light);
+  transition: var(--transition);
+  flex-wrap: wrap;
 }
 
 .worksheet-item:hover {
-  background: #f1f5f9;
-  transform: translateY(-1px);
+  background: var(--brand-blue-light);
+  transform: translateX(4px);
+  box-shadow: var(--shadow-sm);
 }
 
 .worksheet-label {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
+  flex-wrap: wrap;
+  flex: 1;
+  min-width: 200px;
 }
 
 .letter-bn {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   font-weight: 700;
+  color: var(--text-main);
+  font-family: "Baloo 2", cursive;
 }
 
 .letter-en {
   color: var(--text-sub);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .badge {
   font-size: 0.75rem;
   background: var(--accent-orange-soft);
   color: var(--accent-orange-strong);
-  padding: 3px 8px;
+  padding: 4px 10px;
   border-radius: 999px;
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* -----------------------------------------------------------
+   DOWNLOADS GRID
+----------------------------------------------------------- */
+
+.downloads-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+/* -----------------------------------------------------------
+   INFO PILL
+----------------------------------------------------------- */
+
+.info-pill {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--brand-blue-light);
+  border-left: 4px solid var(--brand-blue);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.info-pill-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.info-pill span:last-child {
+  color: var(--text-sub);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* -----------------------------------------------------------
+   BULLET LIST
+----------------------------------------------------------- */
+
+.bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bullet-list li {
+  padding: 8px 0;
+  color: var(--text-sub);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.bullet-list li strong {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.bullet-list a {
+  color: var(--brand-blue);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.bullet-list a:hover {
+  text-decoration: underline;
 }
 
 /* -----------------------------------------------------------
@@ -361,21 +624,214 @@ body {
 
 .footer {
   text-align: center;
-  margin-top: 18px;
-  font-size: 0.85rem;
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
   color: var(--text-sub);
+}
+
+.footer p {
+  margin: 8px 0;
 }
 
 .footer a {
   color: var(--brand-blue);
   font-weight: 600;
   text-decoration: none;
+  transition: var(--transition-fast);
 }
 
-.footer a:hover { text-decoration: underline; }
+.footer a:hover {
+  text-decoration: underline;
+  color: var(--brand-blue-dark);
+}
 
 .footer-small {
-  font-size: 0.8rem;
-  margin-top: 6px;
-  color: var(--text-sub);
+  font-size: 0.85rem;
+  margin-top: 12px;
+  color: var(--text-muted);
+}
+
+/* -----------------------------------------------------------
+   RESPONSIVE DESIGN
+----------------------------------------------------------- */
+
+/* Tablet and below */
+@media (max-width: 968px) {
+  .page {
+    max-width: 100%;
+    padding: 0 16px;
+  }
+
+  .banner-wrapper {
+    margin-bottom: 20px;
+    border-radius: var(--radius-lg);
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .hero-card {
+    position: static;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .downloads-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    margin-bottom: 40px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  body {
+    padding: 8px 8px 32px;
+  }
+
+  .banner-wrapper {
+    margin-bottom: 16px;
+    border-radius: var(--radius-md);
+    aspect-ratio: 16/7;
+  }
+
+  .site-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+
+  .brand {
+    justify-content: center;
+  }
+
+  .nav-links {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .nav-link {
+    flex: 1;
+    text-align: center;
+    min-width: 120px;
+  }
+
+  .section {
+    margin-bottom: 32px;
+  }
+
+  .heading-xl {
+    margin-bottom: 12px;
+  }
+
+  .heading-lg {
+    margin-bottom: 10px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .worksheet-item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .worksheet-label {
+    min-width: auto;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-note {
+    padding: 12px;
+    font-size: 0.85rem;
+  }
+
+  .info-pill {
+    flex-direction: column;
+    padding: 16px;
+  }
+
+  .footer {
+    margin-top: 48px;
+    padding-top: 24px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 400px) {
+  .brand-logo {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .brand-title {
+    font-size: 1rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.75rem;
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .worksheet-item {
+    padding: 12px;
+  }
+
+  .letter-bn {
+    font-size: 1.5rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .banner-wrapper,
+  .site-header,
+  .nav-links,
+  .footer {
+    display: none;
+  }
+
+  body {
+    background: white;
+    padding: 0;
+  }
+
+  .card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    page-break-inside: avoid;
+  }
 }
